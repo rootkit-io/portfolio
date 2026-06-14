@@ -1,44 +1,49 @@
 import type { Metadata } from "next";
-import { portfolio } from "@/data/portfolio";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 
-const siteTitle = `${portfolio.hero.name} | Full-Stack Engineer`;
-const siteDescription =
-  "Backend-leaning full-stack engineer in Barcelona building SaaS systems across frontend, APIs, databases, DevOps, Linux, and security-minded architecture.";
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import { cn } from "@/lib/utils";
+import { CursorProvider, Cursor } from '@/components/animate-ui/components/animate/cursor';
 
 export const metadata: Metadata = {
-  title: siteTitle,
-  description: siteDescription,
-  authors: [{ name: portfolio.hero.name }],
-  creator: portfolio.hero.name,
-  publisher: portfolio.hero.name,
+  title: "Web Development · Web Apps · Technical Partner",
+  description:
+    "I build fast, beautiful websites and web apps for founders and companies who value quality. Next.js, React, TypeScript, Go, and more.",
   keywords: [
-    "Aditya Singh",
-    "Full-Stack Engineer",
-    "Backend Engineer",
-    "Product Engineer",
-    "Founding Engineer",
+    "Web Developer",
+    "Website Development",
+    "Full-Stack Developer",
     "Next.js",
+    "React",
     "TypeScript",
-    "SaaS",
-    "APIs",
-    "PostgreSQL",
-    "DevOps",
-    "Linux",
-    "Security",
-    "Barcelona",
+    "Web Apps",
+    "Founding Engineer",
+    "Freelance Developer",
   ],
   openGraph: {
-    title: siteTitle,
-    description: siteDescription,
-    siteName: "Aditya Singh Portfolio",
+    title: "Web Development · Web Apps · Technical Partner",
+    description:
+      "I build fast, beautiful websites and web apps for founders and companies who value quality.",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: siteTitle,
-    description: siteDescription,
+    title: "Web Development · Web Apps · Technical Partner",
   },
   robots: {
     index: true,
@@ -60,8 +65,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={cn(spaceGrotesk.variable, inter.variable)}>
+      <body>
+        <SmoothScrollProvider>
+          <CursorProvider>
+            <Cursor className="hidden md:block" />
+            {children}
+          </CursorProvider>
+        </SmoothScrollProvider>
+      </body>
     </html>
   );
 }
