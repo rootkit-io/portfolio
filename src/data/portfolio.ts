@@ -3,7 +3,7 @@ import type { PortfolioData } from "@/lib/portfolio-types";
 export const portfolio = {
   hero: {
     headline: "Websites that work as hard as you do.",
-    subtitle: "A team of three · Web Development · Web Apps · Technical Partner for Founders",
+    subtitle: "A team of four · Web Development · Web Apps · Technical Partner for Founders",
     cta: "See the work",
   },
   philosophy: {
@@ -48,7 +48,7 @@ export const portfolio = {
       title: "Dripcross",
       role: "System Administrator",
       description:
-        "Linux operations, user management, and server infrastructure.",
+        "Built from scratch — Linux operations, user management, and server infrastructure.",
       status: "archived",
       stack: ["Linux", "Networking", "Shell", "Infrastructure"],
       scene: "dripcross" as const,
@@ -142,6 +142,11 @@ export const portfolio = {
       name: "Lucii",
       role: "Frontend & Experience",
       description: "Turns designs into living interfaces — motion, polish, and the details that define quality.",
+    },
+    {
+      name: "Arisha",
+      role: "Design",
+      description: "Shapes the visual identity — clean layouts, thoughtful typography, and interfaces that feel right.",
     },
   ],
   contact: {
